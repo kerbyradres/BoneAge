@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<HTML lang="en">
+
+<HEAD>
+	<title>Pediatric Bone Age Calculator</title>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/bootstrap.css" rel="stylesheet">
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-165603682-1"></script>
+	<script>
+ 		window.dataLayer = window.dataLayer || [];
+ 		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+ 		gtag('config', 'UA-165603682-1');
+	</script>
+	<script> 
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-58001934-1', 'auto');
+		ga('require', 'displayfeatures');
+		ga('send', 'pageview');
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/sly.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/script.js"></script>
+</HEAD>
+
+<BODY>
+<div id="left" class="container" margin="auto">
+	<div class="row">
+		<div class="col">
+			<div id="divSex"><label class="h5"><b>Sex:</b></label>
+				<div>
+					<button class="btn btn-lg btn-info" id="btnBoy">&#9794; Male</button>
+					<button class="btn btn-lg btn-danger" id="btnGirl">&#9792; Female</button>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div id="divDOB"><label class="h5" id="labelDOB"><b>DoB:</b></label>
+				<div class="date-picker">
+					<div class="dpframe month">
+						<ul></ul>
+					</div>
+					<div class="dpframe day">
+						<ul></ul>
+					</div>
+					<div class="dpframe year">
+						<ul></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="divReport"><label class="h5" id="labelReport"><b>Report:</b></label>
+		<div id="taReport" contenteditable="true">
+			An error has occurred.
+		</div>
+		<button class="btn btn-success" id="btnCopy" data-clipboard-target="#taReport"><strong>Copy to Clipboard</strong></button>
+		<button class="btn btn-warning" id="btnReset"><strong>Reset</strong></button>
+	</div>
+</div id="left">
+
+<div id="right" class="container" margin="auto">
+	<div class="wrap noselect" id="wrap">
+		<h6 id="h2Instructions">
+			<ol>
+				<li>Select child's sex</li>
+				<li>Input DoB</li>
+				<li>Identify closest matching image</li>
+			</ol>
+		</h6>
+		
+		<div class="frame" id="divBoy">
+			<ul class="slidee text-warning">
+				<li><img src="img/male_000.jpg"><br>Newborn →</li>
+				<li><img src="img/male_003.jpg"><br>← 3 months →</li>
+				<li><img src="img/male_006.jpg"><br>← 6 months →</li>
+				<li><img src="img/male_009.jpg"><br>← 9 months →</li>
+				<li><img src="img/male_012.jpg"><br>← 12 months →</li>
+				<li><img src="img/male_015.jpg"><br>← 15 months →</li>
+				<li><img src="img/male_018.jpg"><br>← 18 months →</li>
+				<li><img src="img/male_024.jpg"><br>← 2 years →</li>
+				<li><img src="img/male_032.jpg"><br>← 2 years, 8 months →</li>
+				<li><img src="img/male_036.jpg"><br>← 3 years →</li>
+				<li><img src="img/male_042.jpg"><br>← 3 years, 6 months →</li>
+				<li><img src="img/male_048.jpg"><br>← 4 years →</li>
+				<li><img src="img/male_054.jpg"><br>← 4 years, 6 months →</li>
+				<li><img src="img/male_060.jpg"><br>← 5 years →</li>
+				<li><img src="img/male_072.jpg"><br>← 6 years →</li>
+				<li><img src="img/male_084.jpg"><br>← 7 years →</li>
+				<li><img src="img/male_096.jpg"><br>← 8 years →</li>
+				<li><img src="img/male_108.jpg"><br>← 9 years →</li>
+				<li><img src="img/male_120.jpg"><br>← 10 years →</li>
+				<li><img src="img/male_132.jpg"><br>← 11 years →</li>
+				<li><img src="img/male_138.jpg"><br>← 11 years, 6 months →</li>
+				<li><img src="img/male_150.jpg"><br>← 12 years, 6 months →</li>
+				<li><img src="img/male_156.jpg"><br>← 13 years →</li>
+				<li><img src="img/male_162.jpg"><br>← 13 years, 6 months →</li>
+				<li><img src="img/male_168.jpg"><br>← 14 years →</li>
+				<li><img src="img/male_180.jpg"><br>← 15 years →</li>
+				<li><img src="img/male_186.jpg"><br>← 15 years, 6 months →</li>
+				<li><img src="img/male_192.jpg"><br>← 16 years →</li>
+				<li><img src="img/male_204.jpg"><br>← 17 years →</li>
+				<li><img src="img/male_216.jpg"><br>← 18 years →</li>
+				<li><img src="img/male_228.jpg"><br>← 19 years</li>
+			</ul>
+		</div class="frame" id="divBoy">
+		
+		<div class="frame" id="divGirl">
+			<ul class="slidee text-warning">
+				<li><img src="img/female_000.jpg"><br>Newborn →</li>
+				<li><img src="img/female_003.jpg"><br>← 3 months →</li>
+				<li><img src="img/female_006.jpg"><br>← 6 months →</li>
+				<li><img src="img/female_009.jpg"><br>← 9 months →</li>
+				<li><img src="img/female_012.jpg"><br>← 12 months →</li>
+				<li><img src="img/female_015.jpg"><br>← 15 months →</li>
+				<li><img src="img/female_018.jpg"><br>← 18 months →</li>
+				<li><img src="img/female_024.jpg"><br>← 2 years →</li>
+				<li><img src="img/female_030.jpg"><br>← 2 years, 6 months →</li>
+				<li><img src="img/female_036.jpg"><br>← 3 years →</li>
+				<li><img src="img/female_042.jpg"><br>← 3 years, 6 months →</li>
+				<li><img src="img/female_050.jpg"><br>← 4 years, 2 months →</li>
+				<li><img src="img/female_060.jpg"><br>← 5 years →</li>
+				<li><img src="img/female_069.jpg"><br>← 5 years, 9 months →</li>
+				<li><img src="img/female_082.jpg"><br>← 6 years, 10 months →</li>
+				<li><img src="img/female_094.jpg"><br>← 7 years, 10 months →</li>
+				<li><img src="img/female_106.jpg"><br>← 8 years, 10 months →</li>
+				<li><img src="img/female_120.jpg"><br>← 10 years →</li>
+				<li><img src="img/female_132.jpg"><br>← 11 years →</li>
+				<li><img src="img/female_144.jpg"><br>← 12 years →</li>
+				<li><img src="img/female_156.jpg"><br>← 13 years →</li>
+				<li><img src="img/female_162.jpg"><br>← 13 years, 6 months →</li>
+				<li><img src="img/female_168.jpg"><br>← 14 years →</li>
+				<li><img src="img/female_180.jpg"><br>← 15 years →</li>
+				<li><img src="img/female_192.jpg"><br>← 16 years →</li>
+				<li><img src="img/female_204.jpg"><br>← 17 years →</li>
+				<li><img src="img/female_216.jpg"><br>← 18 years</li>
+			</ul>
+		</div class="frame" id="divGirl">
+
+		<div id="prevnext">
+			<button class="btn btn-default btn-xs" id="prev">Prev</a>
+			<button class="btn btn-default btn-xs" id="next">Next</a>
+		</div>
+	
+		<div class="scrollbar" id="sbCommon">
+			<div class="handle"></div>
+		</div>
+		
+		</div class="wrap">
+
+		<div id="tooltip">
+			<label class="h4 noselect"><input type="checkbox" id="cbHints">Hints</label>
+		</div>
+</div id="right">
+
+</BODY>
+	
+</HTML>
